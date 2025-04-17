@@ -7,7 +7,7 @@
 
 #search {
   position: relative;
-  background: url("img/bg.jpg");
+  background: url("img/BG.jpg") center center/cover no-repeat;
   background-size: cover;
   height: 30em;
   color: white;
