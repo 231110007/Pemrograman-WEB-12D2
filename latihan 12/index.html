@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Daftar Belanja</title>
+  </head>
+  <body>
+    <h2>Daftar Belanja</h2>
+    <!-- Input untuk memasukkan nama barang -->
+    <input type="text" id="namaBarang" placeholder="Nama Barang" />
+    <!-- Input untuk memasukkan jumlah barang --><input
+      type="number"
+      id="jumlahBarang"
+      placeholder="Jumlah"
+    />
+    <!-- Tombol untuk menambahkan barang ke daftar -->
+    <button onclick="tambahBarang()">Tambah</button>
+    <!-- List kosong yang nantinya akan diisi item belanja -->
+    <ul id="daftarBelanja"></ul>
+    <script>
+      // Fungsi untuk menambahkan barang ke daftar belanja
+      function tambahBarang() {
+      // Ambil nilai dari input nama dan jumlah, lalu hilangkan spasi berlebih di
+      depan/akhir
+      const nama = document.getElementById("namaBarang").value.trim();
+      const jumlah = document.getElementById("jumlahBarang").value.trim();
+      // Validasi input:
+      // Pastikan nama tidak kosong, jumlah tidak kosong, jumlah adalah angka dan
+      lebih besar dari 0
+      if (nama === "" || jumlah === "" || isNaN(jumlah) || jumlah <= 0) {
+      alert("Isi nama barang dan jumlah dengan benar."); // Tampilkan peringatan
+      jika data tidak valid
+      return; // Hentikan fungsi jika input tidak valid
+      }
+      // Ambil elemen <ul> tempat daftar belanja akan ditampilkan
+      const daftar = document.getElementById("daftarBelanja");
+      // Buat elemen <li> baru untuk item belanja
+      const li = document.createElement("li");
+      // Buat elemen <span> untuk menampilkan teks nama dan jumlah barang
+      const span = document.createElement("span");
+      span.textContent = `${nama} (${jumlah})`; // Isi teks, contoh: "Apel (3)"
+      // Buat tombol "Hapus" untuk menghapus item dari daftar
+      const btn = document.createElement("button");
+      btn.textContent = "Hapus";
+      // Saat tombol diklik, hapus <li> yang berisi item ini dari daftar
+      btn.onclick = function () {
+      daftar.removeChild(li);};
+      // Tambahkan elemen span dan tombol ke dalam <li>
+      li.appendChild(span);
+      li.appendChild(btn);
+      // Tambahkan <li> ke dalam daftar belanja (<ul>)
+      daftar.appendChild(li);
+      // Kosongkan input agar pengguna bisa menambahkan item baru dengan mudah
+      document.getElementById("namaBarang").value = "";
+      document.getElementById("jumlahBarang").value = "";
+      }
+    </script>
+  </body>
+</html>

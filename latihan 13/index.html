@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Validasi Password</title>
+  </head>
+  <body>
+    <h2>Validasi Password</h2>
+    <!-- Label untuk input password -->
+    <label for="password">Masukkan Password:</label>
+    <!-- Input dengan tipe password agar karakter disembunyikan saat diketik -->
+    <input type="password" id="password" placeholder="Contoh: abc12345" />
+    <!-- Tombol yang akan memicu fungsi validasiPassword saat diklik -->
+    <button onclick="validasiPassword()">Cek Password</button>
+    <!-- Area untuk menampilkan hasil validasi -->
+    <div id="output"></div>
+    <script>
+      // Fungsi untuk memvalidasi password
+      function validasiPassword() {
+        // Mengambil nilai dari input password
+        const password = document.getElementById("password").value;
+        // Mengambil elemen div tempat hasil validasi akan ditampilkan
+        const output = document.getElementById("output");
+        // Mengecek apakah panjang password minimal 8 karakter
+        const panjangCukup = password.length >= 8;
+        // Mengecek apakah password mengandung setidaknya satu huruf (a-z atau A-Z)
+        const mengandungHuruf = /[a-zA-Z]/.test(password);
+        // Mengecek apakah password mengandung setidaknya satu angka (0-9)
+        const mengandungAngka = /[0-9]/.test(password);
+        // Jika semua syarat terpenuhi, password dianggap valid
+        if (panjangCukup && mengandungHuruf && mengandungAngka) {
+          output.textContent = "Password valid ✅"; // Tampilkan pesan sukses
+        } else {
+          // Jika salah satu syarat tidak terpenuhi, tampilkan pesan kesalahan
+          output.textContent =
+            "Password tidak valid ❌ (minimal 8 karakter, huruf & angka)";
+        }
+      }
+    </script>
+  </body>
+</html>
