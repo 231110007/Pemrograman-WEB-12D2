@@ -1,0 +1,248 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+#search {
+  position: relative;
+  background: url("img/BG.jpg");
+  background-size: cover;
+  height: 30em;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#search::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+}
+
+.title h1 {
+  font-size: 28px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.title p {
+  font-size: 18px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.title hr {
+  width: 50%;
+  margin: 20px auto;
+  opacity: 0.5;
+}
+
+.form-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+button {
+  padding: 8px 25px;
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+button:hover {
+  background-color: #e68900;
+}
+
+.main-content {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  background: #f9f9f9;
+  width: 250px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+}
+
+.card h3 {
+  margin: 10px 0 5px;
+  font-size: 18px;
+  color: #222222;
+}
+
+.card p {
+  font-size: 14px;
+  color: #333232;
+  margin: 0 10px 10px;
+}
+
+.card button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+  background-color: #0056b3;
+}
+
+.rent-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px auto 0;
+  display: block;
+}
+
+.rent-button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  #search {
+    height: auto;
+    padding: 20px 10px;
+    text-align: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .title,
+  .form-container {
+    flex: 1 1 100%;
+  }
+
+  .title h1 {
+    font-size: 18px;
+    text-shadow: none;
+  }
+
+  .title p {
+    font-size: 12px;
+    text-shadow: none;
+  }
+
+  .title hr {
+    width: 50%;
+    margin: 10px auto;
+    opacity: 0.3;
+  }
+
+  .form-container {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px;
+    gap: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+  }
+
+  .form-group label {
+    font-size: 12px;
+  }
+
+  .form-group input,
+  .form-group select {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  button {
+    align-self: center;
+    font-size: 12px;
+    padding: 6px 15px;
+  }
+
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    gap: 10px;
+  }
+
+  .card {
+    width: 70%;
+    padding-bottom: 10px;
+    border-radius: 10px;
+  }
+
+  .card img {
+    height: 140px;
+    object-fit: cover;
+  }
+
+  .card h3 {
+    font-size: 14px;
+    margin: 6px 0 4px;
+  }
+
+  .card p {
+    font-size: 11px;
+    margin: 0 6px 6px;
+  }
+
+  .price {
+    font-size: 13px;
+  }
+
+  .card button,
+  .rent-button {
+    width: 20%;
+    font-size: 12px;
+    padding: 6px;
+  }
+}
